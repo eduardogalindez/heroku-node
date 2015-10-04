@@ -1,13 +1,21 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html>
   <head>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="css/base.css" />
-    <title>Include girls comment box</title>
+    <link rel="stylesheet" href="css/helper.css" />
+    <title>Helper Box</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+   
     <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.2/marked.min.js"></script>
   </head>
   <body>
@@ -45,8 +53,8 @@
         render: function() {
         return (
           <form className="commentForm" onSubmit={this.handleSubmit}>
-          <input type="text" placeholder="Your name" ref="author" />
-          <input type="text" placeholder="Say something..." ref="text" />
+          <input class="form-control input-lg" type="text" placeholder="Your name" ref="author" />
+          <input class="form-control input-lg" type="text" placeholder="What do you need help with?" ref="text" />
           <input type="submit" value="Post" />
           </form>
         );
@@ -113,9 +121,7 @@
         render: function() {
           return (
             <div className="commentBox">
-
-            <h1><a href='/helpers'>HELP!</a></h1>
-            <h1>Hacker Comments</h1>
+            <h1>Helpers</h1>
             <CommentList data={this.state.data} />
             <CommentForm onCommentSubmit={this.handleCommentSubmit} />
             </div>
@@ -132,7 +138,7 @@
 
 
     React.render(
-      <CommentBox url="comments.json" pollInterval={2000} />,
+      <CommentBox url="helpers.json" pollInterval={2000} />,
       document.getElementById('content')
     );
     </script>
