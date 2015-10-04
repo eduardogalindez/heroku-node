@@ -2,7 +2,8 @@
 <html>
   <head>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <!-- Latest compiled and minified CSS -->
+
+   <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
 <!-- Optional theme -->
@@ -10,12 +11,13 @@
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="css/helper.css" />
     <title>Helper Box</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js"></script>
-   
     <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.2/marked.min.js"></script>
   </head>
   <body>
@@ -52,11 +54,16 @@
         },
         render: function() {
         return (
+          <paper-input label="Input label">
           <form className="commentForm" onSubmit={this.handleSubmit}>
-          <input class="form-control input-lg" type="text" placeholder="Your name" ref="author" />
-          <input class="form-control input-lg" type="text" placeholder="What do you need help with?" ref="text" />
-          <input type="submit" value="Post" />
+          <input  type="text" placeholder="Your name" ref="author" />
+         <br/>
+          <input  type="text" placeholder="What do you need help with?" ref="text" size="40"  />
+          <br/>
+        <input className = "btn btn-info" type="submit" value="Post" />
           </form>
+          </paper-input>
+         
         );
         }
       });
