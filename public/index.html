@@ -115,6 +115,7 @@
             <div className="commentBox">
 
             <h1><a href='/helpers'>HELP!</a></h1>
+            <h1><a href='/now_playing'>Now Playing</a></h1>
             <h1>Hacker Comments</h1>
             <CommentList data={this.state.data} />
             <CommentForm onCommentSubmit={this.handleCommentSubmit} />
@@ -122,14 +123,6 @@
           );
         }
       });
-
-
-
-
-
-
-
-
 
     React.render(
       <CommentBox url="comments.json" pollInterval={2000} />,

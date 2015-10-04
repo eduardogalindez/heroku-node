@@ -12,9 +12,10 @@
 
 var fs = require('fs');
 var path = require('path');
-var express = require('express');
+var express = require('express.io');
 var bodyParser = require('body-parser');
-var app = express();
+var app = express().http().io();
+var spotifyPlaylist = require('spotify-playlist');
 
 app.set('port', (process.env.PORT || 3000));
 
@@ -61,6 +62,20 @@ app.post('/helpers.json', function(req, res) {
     });
   });
 });
+app.get('/getTrack', function(req, res) {
+
+  spotifyPlaylist.playlistUri('spotify:user:spotify:playlist:6RU5ydGPBQ8fJKWAqMj8Hg', function(err,results){
+    var playlist_tracks = results.playlist.tracks;
+    index = 0;
+    res.send( playlist_tracks[0].id);
+  }); //Normal spotify URI. 
+  // spotifyPlayList.playlist('syknyk', '0Idyatn0m08Y48tiOovNd9', console.log); //Using username and playlist ID as parameters.
+});
+app.get('/now_playing', function(req, res) {
+    res.sendfile(__dirname+'/public/now_playing.html'); //Normal spotify URI. 
+  // spotifyPlayList.playlist('syknyk', '0Idyatn0m08Y48tiOovNd9', console.log); //Using username and playlist ID as parameters.
+});
+
 
 
 app.listen(app.get('port'), function() {
